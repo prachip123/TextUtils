@@ -39,29 +39,25 @@ export default function Textform(props) {
   }
     
     const [txt, settext]= useState('Enter text here');
-  return (
-    
-    
-      <>
+  return (   
+      <>   
     <div className='container' >
     <h2>{props.heading}</h2>
     <div className="mb-3">
     <textarea className="form-control" onChange={HandleOnChange} id="exampleFormControlTextarea1" rows="5" value={txt} style={{backgoundColor:'green'}}></textarea>
     </div>
-    <button className="btn btn-primary mx-2" onClick={HandleOnClickUp}> Convert to uppercase</button>
-    <button className="btn btn-primary mx-2" onClick={HandleOnClickLo}> Convert to lower</button>
-    <button className="btn btn-primary mx-2" onClick={HandleClearText}> Clear text</button>
-    <button className="btn btn-primary mx-2" onClick={RemoveExtraSpaces}> Remove Extra Spaces</button>
+    <button className="btn btn-primary mx-2 my-1" onClick={HandleOnClickUp}> Convert to uppercase</button>
+    <button className="btn btn-primary mx-2 my-1" onClick={HandleOnClickLo}> Convert to lower</button>
+    <button className="btn btn-primary mx-2 my-1" onClick={HandleClearText}> Clear text</button>
+    <button className="btn btn-primary mx-2 my-1" onClick={RemoveExtraSpaces}> Remove Extra Spaces</button>
     </div>
     <div className='container'>
     <h1>My text summary</h1>
-    <p>Number of words {txt.split(" ").length} and Number of charachters {txt.length}</p>
-    <p>{0.008*txt.split(" ").length} minutes need to read paragraph</p>
+    <p>Number of words {txt.split(" ").filter((element)=>{return element.length!==0}).length} and Number of charachters {txt.length}</p>
+    <p>{0.008*txt.split(" ").filter((element)=>{return element.length!==0}).length} minutes need to read paragraph</p>
     <h2>Preview</h2>
     <p>{txt}</p>
-    </div>
-    </>
-    
-    
+    </div>  
+    </>       
   )
 }
